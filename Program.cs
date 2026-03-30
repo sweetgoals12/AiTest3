@@ -14,6 +14,7 @@ builder.Services.AddDbContext<CardtestContext>(options =>
 // Add ASP.NET Core Identity
 builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
 {
+    options.SignIn.RequireConfirmedAccount = false;
     options.Password.RequiredLength = 6;
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequireUppercase = false;

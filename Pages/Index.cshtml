@@ -16,14 +16,15 @@
                 @if (SignInManager.IsSignedIn(User))
                 {
                     <span class="text-white me-3">Welcome, <strong>@User.Identity.Name</strong></span>
-                    <form method="post" asp-page="/Account/Logout" class="d-inline">
+                    <a asp-area="Identity" asp-page="/Account/Manage/Index" class="btn btn-outline-light me-2">Profile</a>
+                    <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
                         <button type="submit" class="btn btn-outline-light">Logout</button>
                     </form>
                 }
                 else
                 {
-                    <a asp-page="/Account/Login" class="btn btn-outline-light me-2">Login</a>
-                    <a asp-page="/Account/Register" class="btn btn-light">Register</a>
+                    <a asp-area="Identity" asp-page="/Account/Login" class="btn btn-outline-light me-2">Login</a>
+                    <a asp-area="Identity" asp-page="/Account/Register" class="btn btn-light">Register</a>
                 }
             </div>
         </div>
