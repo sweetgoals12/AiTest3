@@ -1,0 +1,20 @@
+# Build results
+bin/
+obj/
+
+# Visual Studio
+.vs/
+*.slnx
+*.slnx.user
+*.user
+
+# IDE
+.vscode/
+.idea/
+
+# Dependencies
+node_modules/
+
+# Environment files
+*.local
+appsettings.*.json
