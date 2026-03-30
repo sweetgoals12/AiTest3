@@ -89,17 +89,7 @@ public partial class CardtestContext : IdentityDbContext
                         j.HasIndex(new[] { "CardSetId" }, "IX_UserCardSets_CardSetId");
                     });
 
-            entity.HasMany(d => d.Roles).WithMany(p => p.Users)
-                .UsingEntity<Dictionary<string, object>>(
-                    "AspNetUserRole",
-                    r => r.HasOne<AspNetRole>().WithMany().HasForeignKey("RoleId"),
-                    l => l.HasOne<AspNetUser>().WithMany().HasForeignKey("UserId"),
-                    j =>
-                    {
-                        j.HasKey("UserId", "RoleId");
-                        j.ToTable("AspNetUserRoles");
-                        j.HasIndex(new[] { "RoleId" }, "IX_AspNetUserRoles_RoleId");
-                    });
+            // Remove the Roles configuration - let IdentityDbContext handle it
         });
 
         modelBuilder.Entity<AspNetUserClaim>(entity =>
